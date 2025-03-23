@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Entry-Exit System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e3f2fd; /* Softer Background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2196F3;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
+            border-radius: 16px;
+            padding: 25px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 2px solid #2196F3;
+            border-radius: 10px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #1976D2; 
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+        }
+
+        button {
+            background-color: #2196F3;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 45%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976D2;
+        }
+
+        #responseMessage {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #388E3C;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .table-container {
+            background-color: #ffffff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            padding: 25px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0f8ff; /* Light blue alternate rows */
+        }
+
+        tr:hover {
+            background-color: #e3f2fd; /* Hover effect */
+        }
+
+        .no-records {
+            color: #999;
+            font-style: italic;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>IoT Entry-Exit Monitoring System</h1>
+
+    <div class="container">
+        <input type="text" id="userIdInput" placeholder="Enter User ID">
+        <button onclick="recordEntry()">Entry</button>
+        <button onclick="recordExit()">Exit</button>
+
+        <div id="responseMessage"></div>
+    </div>
+
+    <div class="table-container">
+        <h2>Records Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                </tr>
+            </thead>
+            <tbody id="recordsTableBody">
+                <tr>
+                    <td colspan="3" class="no-records">No Records Found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
